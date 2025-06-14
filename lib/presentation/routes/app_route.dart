@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:currency_converter/business_logic.dart';
 import 'package:currency_converter/presentation.dart';
 
 class AppRoute {
@@ -8,7 +10,18 @@ class AppRoute {
 
     switch (routeSettings.name) {
       case homeRoute:
-        page = HomePage();
+        page = MultiBlocProvider(
+          providers: <BlocProvider>[
+            BlocProvider<ApiCallsCubit>(
+              create: (context) => ApiCallsCubit()..getConversionRates(),
+              lazy: false,
+            ),
+            BlocProvider<HomeCubit>(
+              create: (context) => HomeCubit(),
+            ),
+          ],
+          child: HomePage(),
+        );
         break;
 
       default:
