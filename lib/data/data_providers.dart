@@ -1,1 +1,1 @@
-export 'data_providers/conversion_rates_api.dart';
+export 'data_providers/exchange_rate_api.dart';

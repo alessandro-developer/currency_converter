@@ -1,2 +1,2 @@
-export 'repositories/conversion_rates_repository.dart';
-export 'repositories/conversion_rates_repository_failure.dart';
+export 'repositories/exchange_rate_repository.dart';
+export 'repositories/exchange_rate_repository_failure.dart';
