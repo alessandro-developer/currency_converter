@@ -25,7 +25,7 @@ class App extends StatelessWidget {
           child: LoaderOverlay(
             overlayColor: ColorPalette.black.withValues(alpha: 0.2),
             overlayWidgetBuilder: (_) => Center(
-              child: CircularProgressIndicator(color: ColorPalette.white),
+              child: CircularProgressIndicator(color: ColorPalette.greenLight),
             ),
             child: child!,
           ),
