@@ -21,13 +21,13 @@ class ResultsSupportedCodesModel extends Equatable {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'supported_codes': supportedCodes.map((x) => x.toMap()).toList(),
+      'supported_codes': supportedCodes.map((x) => [x.code, x.name]).toList(),
     };
   }
 
   factory ResultsSupportedCodesModel.fromMap(Map<String, dynamic> map) {
     return ResultsSupportedCodesModel(
-      supportedCodes: (map['supported_codes'] as List<dynamic>).map((x) => SupportedCodesModel(code: x[0], name: x[1])).toList(),
+      supportedCodes: (map['supported_codes'] as List<dynamic>).map((x) => SupportedCodesModel(code: x[0] as String, name: x[1] as String)).toList(),
     );
   }
 

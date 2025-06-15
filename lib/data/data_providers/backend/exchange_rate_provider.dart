@@ -6,7 +6,7 @@ class ExchangeRateProvider {
   static final ExchangeRateProvider _instance = ExchangeRateProvider._internal();
   factory ExchangeRateProvider() => _instance;
 
-  // Make a GET request to the server to get conversion rates:
+  /// Make a GET request to the server to get conversion rates:
   Future<Response> getConversionRates() async {
     final String token = 'b08d8f85620aeaedd1a47190';
 
@@ -18,7 +18,7 @@ class ExchangeRateProvider {
     );
   }
 
-  // Make a GET request to the server to get the list of supported codes:
+  /// Make a GET request to the server to get the list of supported codes:
   Future<Response> getSupportedCodes() async {
     final String token = 'b08d8f85620aeaedd1a47190';
 
