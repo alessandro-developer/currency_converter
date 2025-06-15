@@ -16,6 +16,7 @@ dependencies:
   http: ^1.4.0
   loader_overlay: ^5.0.0
   responsive_framework: ^1.5.1
+  shared_preferences: ^2.5.3
   
 
 dev_dependencies:
