@@ -9,11 +9,11 @@ class ExchangeRateRepository {
   static final ExchangeRateRepository _instance = ExchangeRateRepository._internal();
   factory ExchangeRateRepository() => _instance;
 
-  final ExchangeRateAPI _exchangeRateAPI = ExchangeRateAPI();
+  final ExchangeRateProvider _exchangeRateProvider = ExchangeRateProvider();
 
   /// Gets the conversion rates from the server and manages the response:
   Future<ResultsConversionRatesModel> getConversionRates() async {
-    final Response response = await _exchangeRateAPI.getConversionRates();
+    final Response response = await _exchangeRateProvider.getConversionRates();
 
     if (response.statusCode < 200 || response.statusCode > 299) {
       developer.log('HTTP FAILURE CODE: ${response.statusCode} - ${response.reasonPhrase} => getConversionRates');
@@ -36,7 +36,7 @@ class ExchangeRateRepository {
 
   /// Gets the list of supported codes from the server and manages the response:
   Future<ResultsSupportedCodesModel> getSupportedCodes() async {
-    final Response response = await _exchangeRateAPI.getSupportedCodes();
+    final Response response = await _exchangeRateProvider.getSupportedCodes();
 
     if (response.statusCode < 200 || response.statusCode > 299) {
       developer.log('HTTP FAILURE CODE: ${response.statusCode} - ${response.reasonPhrase} => getSupportedCodes');

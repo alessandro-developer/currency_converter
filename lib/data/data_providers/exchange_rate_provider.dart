@@ -1,10 +1,10 @@
 import 'package:currency_converter/data.dart';
 import 'package:http/http.dart';
 
-class ExchangeRateAPI {
-  ExchangeRateAPI._internal();
-  static final ExchangeRateAPI _instance = ExchangeRateAPI._internal();
-  factory ExchangeRateAPI() => _instance;
+class ExchangeRateProvider {
+  ExchangeRateProvider._internal();
+  static final ExchangeRateProvider _instance = ExchangeRateProvider._internal();
+  factory ExchangeRateProvider() => _instance;
 
   // Make a GET request to the server to get conversion rates:
   Future<Response> getConversionRates() async {
