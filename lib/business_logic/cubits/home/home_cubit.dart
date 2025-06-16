@@ -28,4 +28,15 @@ class HomeCubit extends Cubit<HomeState> {
       showMenu: showMenu,
     ),
   );
+
+  /// SELECT CURRENCY:
+  void selectCurrency({required String code, required String name}) {
+    emit(
+      state.copyWith(
+        selectedCurrencyCode: code,
+        selectedCurrencyName: name,
+        showMenu: false,
+      ),
+    );
+  }
 }
