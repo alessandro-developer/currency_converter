@@ -105,10 +105,19 @@ class HomeWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
 
-                  BlocBuilder<ApiCallsCubit, ApiCallsState>(
-                    builder: (context, state) {
-                      final ResultsConversionRatesModel response = state.resultsConversionRates;
-                      final Map<String, dynamic> ratesMap = response.conversionRates;
+                  BlocBuilder<HomeCubit, HomeState>(
+                    buildWhen: (previous, current) => previous.conversionRates != current.conversionRates,
+                    builder: (context, homeState) {
+                      final Map<String, double> ratesMap = homeState.conversionRates;
+
+                      if (ratesMap.isEmpty) {
+                        return Center(
+                          child: Text(
+                            'No conversion rates available.',
+                            style: CustomTextStyle.s17w700(ColorPalette.black),
+                          ),
+                        );
+                      }
 
                       return Expanded(
                         child: GridView.builder(
@@ -121,7 +130,7 @@ class HomeWidget extends StatelessWidget {
                           itemCount: ratesMap.length,
                           itemBuilder: (context, index) {
                             final String currencyCode = ratesMap.keys.elementAt(index);
-                            final double rate = ratesMap[currencyCode];
+                            final double rate = ratesMap[currencyCode]!;
 
                             return Column(
                               children: <Widget>[
@@ -139,7 +148,7 @@ class HomeWidget extends StatelessWidget {
                                     style: CustomTextStyle.s15w500(ColorPalette.black),
                                   ),
                                 ),
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 5),
 
                                 Container(
                                   height: 40,

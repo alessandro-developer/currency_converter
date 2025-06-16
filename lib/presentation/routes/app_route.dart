@@ -13,7 +13,7 @@ class AppRoute {
         page = MultiBlocProvider(
           providers: <BlocProvider>[
             BlocProvider<ApiCallsCubit>(
-              create: (context) => ApiCallsCubit()..getConversionRates(),
+              create: (context) => ApiCallsCubit()..getConversionRatesAndSupportedCodes(),
               lazy: false,
             ),
             BlocProvider<HomeCubit>(

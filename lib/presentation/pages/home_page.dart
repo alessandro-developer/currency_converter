@@ -29,7 +29,15 @@ class HomePage extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Align(
               alignment: Alignment.center,
-              child: BlocBuilder<ApiCallsCubit, ApiCallsState>(
+              child: BlocConsumer<ApiCallsCubit, ApiCallsState>(
+                listener: (context, state) {
+                  if (state.getConversionRatesStatus == FormzSubmissionStatus.success) {
+                    context.read<HomeCubit>().initializeConversionRates(
+                      rawRates: state.resultsConversionRates.conversionRates,
+                      supportedCodes: state.resultsSupportedCodes.supportedCodes,
+                    );
+                  }
+                },
                 builder: (context, state) => switch (state.getConversionRatesStatus) {
                   FormzSubmissionStatus.inProgress => Center(
                     child: CircularProgressIndicator(color: ColorPalette.greenLight),

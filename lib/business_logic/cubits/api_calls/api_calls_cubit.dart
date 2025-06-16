@@ -11,8 +11,8 @@ class ApiCallsCubit extends Cubit<ApiCallsState> {
 
   final ExchangeRateRepository exchangeRateRepo = ExchangeRateRepository();
 
-  /// Get Conversion Rates:
-  void getConversionRates() async {
+  /// GET CONVERSION RATES AND SUPPORTED CODES:
+  void getConversionRatesAndSupportedCodes() async {
     emit(state.copyWith(getConversionRatesStatus: FormzSubmissionStatus.inProgress));
 
     try {
