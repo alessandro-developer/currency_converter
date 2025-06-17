@@ -57,7 +57,7 @@ class ExchangeRateRepository {
       developer.log('HTTP FAILURE CODE: ${response.statusCode} - ${response.reasonPhrase} => getConversionRates');
       developer.log('HTTP FAILURE BODY: ${response.body} <= getConversionRates');
 
-      throw GetConversionRatesFailure.fromCode(response.statusCode, response.body);
+      throw ApiFailure.fromResponse(response.statusCode, response.body);
     } else {
       developer.log('HTTP SUCCESS CODE: ${response.statusCode} - ${response.reasonPhrase} => getConversionRates');
 
@@ -99,7 +99,7 @@ class ExchangeRateRepository {
       developer.log('HTTP FAILURE CODE: ${response.statusCode} - ${response.reasonPhrase} => getSupportedCodes');
       developer.log('HTTP FAILURE BODY: ${response.body} <= getSupportedCodes');
 
-      throw GetSupportedCodesFailure.fromCode(response.statusCode, response.body);
+      throw ApiFailure.fromResponse(response.statusCode, response.body);
     } else {
       developer.log('HTTP SUCCESS CODE: ${response.statusCode} - ${response.reasonPhrase} => getSupportedCodes');
 

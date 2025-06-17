@@ -30,7 +30,7 @@ class ApiCallsCubit extends Cubit<ApiCallsState> {
       emit(
         state.copyWith(
           getConversionRatesStatus: FormzSubmissionStatus.failure,
-          errorMessage: e.toString(),
+          errorMessage: e is ApiFailure ? e.code : 'unexpected',
         ),
       );
     }

@@ -43,11 +43,21 @@ class HomePage extends StatelessWidget {
                     child: CircularProgressIndicator(color: ColorPalette.greenLight),
                   ),
                   FormzSubmissionStatus.success => HomeWidget(),
-                  FormzSubmissionStatus.failure => Center(
-                    child: Text(
-                      state.errorMessage.isNotEmpty ? state.errorMessage : '',
-                      style: CustomTextStyle.s17w700(ColorPalette.black),
-                    ),
+                  FormzSubmissionStatus.failure => Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        Icons.error_outline,
+                        color: ColorPalette.redLight,
+                        size: 80,
+                      ),
+                      SizedBox(height: 10),
+
+                      Text(
+                        HomeHelper.getErrorMessage(context, state.errorMessage),
+                        style: CustomTextStyle.s17w700(ColorPalette.black),
+                      ),
+                    ],
                   ),
                   _ => Container(),
                 },
