@@ -53,7 +53,7 @@ class HomeCubit extends Cubit<HomeState> {
     _calculateAndSortConversionRates();
   }
 
-  /// CALCULATES CONVERSION RATES BASED ON USER INPUT:
+  /// CALCULATES AND SORTS CONVERSION RATES BASED ON USER INPUT:
   void _calculateAndSortConversionRates() {
     if (_conversionRates.isEmpty || _supportedCodes.isEmpty) {
       return;
@@ -65,10 +65,13 @@ class HomeCubit extends Cubit<HomeState> {
     final double rateOfSelectedBaseToUSD = _conversionRates[selectedCurrencyCode] ?? 1.0;
     final Map<String, double> finalConversionRates = <String, double>{};
 
+    // Calculate rate relative to selected currency and apply amount
     _conversionRates.forEach((code, rateFromUSD) => newConversionRates[code] = (rateFromUSD / rateOfSelectedBaseToUSD) * amount);
 
+    // Convert map to list for sorting
     List<MapEntry<String, double>> sortedEntries = newConversionRates.entries.toList();
 
+    // Sort: selected currency first, then alphabetical order
     sortedEntries.sort((a, b) {
       if (a.key == selectedCurrencyCode) return -1;
       if (b.key == selectedCurrencyCode) return 1;
@@ -76,6 +79,7 @@ class HomeCubit extends Cubit<HomeState> {
       return a.key.compareTo(b.key);
     });
 
+    // Rebuild the sorted map
     for (var entry in sortedEntries) {
       finalConversionRates[entry.key] = entry.value;
     }

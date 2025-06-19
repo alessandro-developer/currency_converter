@@ -18,6 +18,7 @@ class HomeWidget extends StatelessWidget {
       children: <Widget>[
         const SizedBox(height: 20),
 
+        /// AMOUNT INPUT FIELD:
         Text(
           'Amount:',
           style: CustomTextStyle.s15w700(ColorPalette.black),
@@ -53,6 +54,7 @@ class HomeWidget extends StatelessWidget {
             children: <Widget>[
               Column(
                 children: <Widget>[
+                  /// CURRENCY SELECTION DROPDOWN:
                   BlocSelector<HomeCubit, HomeState, bool>(
                     selector: (state) => state.showMenu,
                     builder: (context, showMenu) => GestureDetector(
@@ -105,6 +107,7 @@ class HomeWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
 
+                  /// CONVERSION RATES GRID:
                   BlocBuilder<HomeCubit, HomeState>(
                     buildWhen: (previous, current) => previous.conversionRates != current.conversionRates,
                     builder: (context, homeState) {
@@ -175,6 +178,7 @@ class HomeWidget extends StatelessWidget {
                 ],
               ),
 
+              /// CURRENCY SELECTION MENU:
               BlocSelector<HomeCubit, HomeState, bool>(
                 selector: (state) => state.showMenu,
                 builder: (context, showMenu) => Positioned(

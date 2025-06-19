@@ -9,14 +9,14 @@ class CacheProvider {
   static final CacheProvider _instance = CacheProvider._internal();
   factory CacheProvider() => _instance;
 
-  /// Key to conversion rates:
+  /// KEY TO CONVERSION RATES:
   static const String _conversionRatesKey = 'conversionRatesData';
   static const String _lastUpdateTimestampKey = 'lastConversionRatesUpdate';
 
-  /// Key for supported codes:
+  /// KEY FOR SUPPORTED CODES:
   static const String _supportedCodesKey = 'supportedCodesData';
 
-  /// Save current conversion rates and timestamp within the device:
+  /// SAVE CURRENT CONVEERSION RATES AND TIMESTAMP WITHIN THE DEVICE:
   Future<void> saveConversionRatesLocally(ResultsConversionRatesModel data) async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -30,7 +30,7 @@ class CacheProvider {
     }
   }
 
-  /// Reads conversion rates from the device:
+  /// READES CONVERSION RATES FROM THE DEVICE:
   Future<ResultsConversionRatesModel?> loadConversionRatesLocally() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -50,7 +50,7 @@ class CacheProvider {
     }
   }
 
-  /// Reads from the device the last saved timestamp associated with conversion rates:
+  /// READES FROM THE DEVICE THE LAST SAVED TIMESTAMP ASSOCIATED WITH CONVERSION RATES:
   Future<String?> getLastUpdateTimestampString() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -62,7 +62,7 @@ class CacheProvider {
     }
   }
 
-  /// Save (one-time) supported codes within the device:
+  /// SAVE (ONE-TIME) SUPPORTED CODES WITHIN THE DEVICE:
   Future<void> saveSupportedCodesLocally(ResultsSupportedCodesModel data) async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -75,7 +75,7 @@ class CacheProvider {
     }
   }
 
-  /// Reads codes supported by the device:
+  /// READES CODES SUPPORTED BY THE DEVICE:
   Future<ResultsSupportedCodesModel?> loadSupportedCodesLocally() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();

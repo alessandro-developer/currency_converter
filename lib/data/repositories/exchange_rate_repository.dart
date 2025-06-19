@@ -13,7 +13,7 @@ class ExchangeRateRepository {
   final ExchangeRateProvider _exchangeRateProvider = ExchangeRateProvider();
   final CacheProvider _cacheProvider = CacheProvider();
 
-  /// Retrieve conversion rates, from cache (daily check) or through API call:
+  /// RETRIEVE CONVERSION RATES, FROM CACHE (DAILY CHECK) OR THROUGH API CALL:
   Future<ResultsConversionRatesModel> getConversionRates() async {
     // Reads the last cached timestamp:
     final String? lastUpdateString = await _cacheProvider.getLastUpdateTimestampString();
@@ -76,12 +76,12 @@ class ExchangeRateRepository {
     }
   }
 
-  /// Check if two DateTime are the same:
+  /// CHECK IF TWO DATETIME ARE THE SAME:
   bool isSameDay(DateTime date1, DateTime date2) {
     return date1.year == date2.year && date1.month == date2.month && date1.day == date2.day;
   }
 
-  /// Retrieve supported codes, from cache or API call:
+  /// RETRIEVE SUPPORTED CODES, FROM CACHE OR API CALL:
   Future<ResultsSupportedCodesModel> getSupportedCodes() async {
     // Try to load data from the cache:
     final ResultsSupportedCodesModel? localData = await _cacheProvider.loadSupportedCodesLocally();

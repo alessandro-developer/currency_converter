@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:currency_converter/data.dart';
 
-/// Gets the error code from the server:
+/// GETS THE ERROR CODE FROM THE SERVER:
 class ApiFailure implements Exception {
   final String code;
 
