@@ -44,6 +44,16 @@ This project adopts a **Clean Architecture** adapted to the Flutter context, whe
 
 This combination ensures a clear separation between presentation, business logic, and data access layers, guaranteeing testability, scalability, and maintainability.
 
+**Singleton Pattern**
+
+The classes [`CacheProvider`](lib/data/data_providers/local/cache_provider.dart), [`ExchangeRateProvider`](lib/data/data_providers/backend/exchange_rate_provider.dart), and [`ExchangeRateRepository`](lib/data/repositories/exchange_rate_repository.dart) are implemented as **Singletons**.  
+This design choice ensures that only one instance of each provider/repository exists throughout the app's lifecycle, allowing:
+- Efficient resource management (e.g., shared preferences, HTTP clients)
+- Consistent access to cached data and API logic
+- Avoidance of unnecessary object creation and memory usage
+
+Singletons are especially useful in Flutter apps for services that must maintain a single state or cache, or that interact with device resources.
+
 ---
 
 ## How It Works
@@ -148,6 +158,16 @@ Questo progetto adotta una **Clean Architecture** adattata al contesto Flutter, 
 - **ViewModel (`lib/business_logic/`)**: realizzato tramite Bloc/Cubit, funge da mediatore tra View e Model, gestendo la logica di business e lo stato.
 
 Questa combinazione garantisce una chiara separazione tra livelli di presentazione, logica di business e accesso ai dati, assicurando testabilità, scalabilità e manutenibilità.
+
+**Pattern Singleton**
+
+Le classi [`CacheProvider`](lib/data/data_providers/local/cache_provider.dart), [`ExchangeRateProvider`](lib/data/data_providers/backend/exchange_rate_provider.dart) ed [`ExchangeRateRepository`](lib/data/repositories/exchange_rate_repository.dart) sono implementate come **Singleton**.  
+Questa scelta progettuale garantisce che esista una sola istanza di ciascun provider/repository durante tutto il ciclo di vita dell’app, permettendo:
+- Gestione efficiente delle risorse (es. shared preferences, HTTP client)
+- Accesso coerente ai dati in cache e alla logica di API
+- Evitare creazione inutile di oggetti e spreco di memoria
+
+I Singleton sono particolarmente utili nelle app Flutter per servizi che devono mantenere uno stato unico o una cache, o che interagiscono con risorse di sistema.
 
 ---
 
