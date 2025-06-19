@@ -28,7 +28,7 @@ class HomeWidget extends StatelessWidget {
           selector: (state) => state.ammount,
           builder: (context, ammount) {
             return CustomTextField(
-              errorText: ammount.displayError != null ? 'Error' : null,
+              errorText: ammount.displayError != null ? 'Amount not valid' : null,
               errorStyle: CustomTextStyle.s15w500(ColorPalette.redDark),
               hint: 'Amount',
               hintStyle: CustomTextStyle.s15w500(ColorPalette.grey),
