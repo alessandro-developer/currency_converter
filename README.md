@@ -10,27 +10,9 @@ A Flutter app that displays exchange rates between currencies, with advanced sta
 
 ## Index
 
-1. [Requirements](#requirements)
-2. [Architecture and Structure](#architecture-and-structure)
-3. [How It Works](#how-it-works)
-4. [Conclusions](#conclusions)
-
----
-
-## Requirements
-
-| Requirement | Satisfied | Notes |
-|--------------------------------------------------------------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------|
-| Architecture with design pattern (MVVM, MVC, etc.) | ✅ | MVVM-like pattern with separation between presentation, business logic, and data layer. |
-| Use of a state management library (bloc, riverpod, provider, etc.) | ✅ | Use of the `flutter_bloc` package for state management. |
-| Use of the exchangerate-api.com API with provided key | ✅ | |
-| Only USD endpoint: https://v6.exchangerate-api.com/v6/API_KEY/latest/USD | ✅ | |
-| Local data persistence using a persistence library | ✅ | Use of the `shared_preferences` package via `CacheProvider` to save and load data. |
-| Display of rates in a list or grid | ✅ | |
-| Reference currency change without new API calls, algorithmic calculation | ✅ | Calculation is performed locally using already downloaded USD data, without new API calls. |
-| UI state management: loading, success, error | ✅ | |
-| Well-structured, clean, easily understandable code | ✅ | Clear folder structure, separation between layers, use of Cubit and well-defined models. |
-| UI/UX not a priority, but a page with dropdown and list/grid is present | ✅ | |
+1. [Architecture and Structure](#architecture-and-structure)
+2. [How It Works](#how-it-works)
+3. [Conclusions](#conclusions)
 
 ---
 
@@ -103,16 +85,6 @@ Singletons are especially useful in Flutter apps for services that must maintain
 7. **UI Management**
    - The UI automatically manages loading, success, and error states, displaying messages where necessary.
 
----
-
-## Conclusions
-
-- **Requirements met:** All requirements are satisfied.
-- **Clear architecture:** Clear separation between layers, easy to extend.
-- **Robust state management:** Bloc/Cubit, reactive UI.
-- **Efficient persistence:** Daily update, no unnecessary API calls.
-- **Local rate calculation:** No API dependency after the first fetch.
-- **Simple and functional UI:** Dropdown, amount field, rates grid, state management.
 
 ---
 ---
@@ -125,27 +97,9 @@ Un'app Flutter che mostra i tassi di cambio tra valute, con gestione avanzata de
 
 ## Indice
 
-1. [Requisiti](#requisiti)
-2. [Architettura e Struttura](#architettura-e-struttura)
-3. [Logica di Funzionamento](#logica-di-funzionamento)
-4. [Conclusioni](#conclusioni)
-
----
-
-## Requisiti
-
-| Requisito | Soddisfatto | Note |
-|--------------------------------------------------------------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------|
-| Architettura con design pattern (MVVM, MVC, ecc.) | ✅ | Pattern MVVM-like con separazione tra presentation, business logic e data layer. |
-| Uso di una libreria di state management (bloc, riverpod, provider, ecc.) | ✅ | Utilizzo del package `flutter_bloc` per la gestione dello stato. |
-| Uso dell’API exchangerate-api.com con chiave fornita | ✅ | |
-| Solo endpoint USD: https://v6.exchangerate-api.com/v6/API_KEY/latest/USD | ✅ | |
-| Persistenza locale dei dati tramite una libreria di persistenza | ✅ | Utilizzo del package `shared_preferences` tramite `CacheProvider` per salvare e caricare i dati. |
-| Visualizzazione dei tassi in una lista o griglia | ✅ | |
-| Cambio valuta di riferimento senza nuove chiamate API, calcolo algoritmico | ✅ | Il calcolo avviene localmente usando i dati USD già scaricati, senza nuove chiamate API. |
-| Gestione degli stati UI: loading, success, error | ✅ | |
-| Codice strutturato, pulito, facilmente comprensibile | ✅ | Struttura a cartelle chiara, separazione tra livelli, uso di Cubit e modelli ben definiti. |
-| UI/UX non prioritaria, ma presente una pagina con dropdown e lista/griglia | ✅ | |
+1. [Architettura e Struttura](#architettura-e-struttura)
+2. [Logica di Funzionamento](#logica-di-funzionamento)
+3. [Conclusioni](#conclusioni)
 
 ---
 
@@ -218,14 +172,4 @@ I Singleton sono particolarmente utili nelle app Flutter per servizi che devono 
 7. **Gestione UI**
    - La UI gestisce automaticamente gli stati di loading, successo ed errore, mostrando messaggi dove necessario.
 
----
-
-## Conclusioni
-
-- **Rispetto dei requisiti:** Tutti i requisiti sono rispettati.
-- **Architettura chiara:** Separazione netta tra livelli, facile estensione.
-- **Gestione stato robusta:** Bloc/Cubit, UI reattiva.
-- **Persistenza efficiente:** Aggiornamento giornaliero, nessuna chiamata API superflua.
-- **Calcolo tassi locale:** Nessuna dipendenza da API dopo il primo fetch.
-- **UI semplice e funzionale:** Dropdown, campo importo, griglia tassi, gestione stati.
 
